@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Sign Up Form</title>
-</head>
-<body>
-    <h1>Sign Up Form</h1>
-    
+@extends('layouts.master')
+@section('title', 'Register')
+
+@section('content')
     <form method="POST" action="{{ route('register.submit') }}">
         @csrf
         
@@ -35,5 +31,4 @@
         
         <input type="submit" value="Sign Up">
     </form>
-</body>
-</html>
+@endsection
