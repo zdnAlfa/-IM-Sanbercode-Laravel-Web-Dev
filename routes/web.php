@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormController;
-
+use App\Http\Controllers\CategoryController;
 
 
 Route::get('/register', [FormController::class, 'register'])->name('register');
@@ -15,4 +15,10 @@ Route::get('/welcome', [FormController::class, 'welcome'])->name('welcome');
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/category', function () {
+    return redirect()->route('category.index');
+});
+
+Route::resource('category', CategoryController::class);
 
