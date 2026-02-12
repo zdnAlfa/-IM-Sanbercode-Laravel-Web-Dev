@@ -1,5 +1,5 @@
 <aside class="left-sidebar">
-  <!-- Sidebar scroll-->
+  
   <div>
     <div class="brand-logo d-flex align-items-center justify-content-between p-4  text-white">
       <div class="text-center w-100">
@@ -17,7 +17,7 @@
       </div>
     </div>
     
-    <!-- Sidebar navigation-->
+    
     <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
       <ul id="sidebarnav">
         <li class="nav-small-cap">
@@ -56,7 +56,7 @@
             </a>
           </li>
         @endif
-        <!--- User Section --->
+        
         @if(Auth::check() && Auth::user()->role === 'user')
           <li class="nav-small-cap">
             <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
@@ -119,7 +119,7 @@
           </li>
         @endif
         
-        <!-- Logout Button -->
+        
         <li class="sidebar-item">
           <form method="POST" action="{{ route('logout') }}" class="d-inline">
             @csrf

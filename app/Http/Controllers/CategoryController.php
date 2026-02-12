@@ -16,13 +16,13 @@ class CategoryController extends Controller
         return view('categories.index', compact('categories'));
     }
 
-    // Menampilkan form create
+    
     public function create()
     {
         return view('categories.create');
     }
 
-    // Menyimpan data baru
+   
     public function store(Request $request)
     {
         $request->validate([
@@ -36,7 +36,7 @@ class CategoryController extends Controller
             ->with('success', 'Category berhasil ditambahkan!');
     }
 
-    // Menampilkan detail kategori
+   
     public function show($id)
         {
             $category = Category::findOrFail($id);
@@ -45,14 +45,14 @@ class CategoryController extends Controller
             return view('categories.show', compact('category', 'products'));
         }
 
-    // Menampilkan form edit
+   
     public function edit($id)
     {
         $category = Category::findOrFail($id);
         return view('categories.edit', compact('category'));
     }
 
-    // Update data kategori
+    
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -67,7 +67,7 @@ class CategoryController extends Controller
             ->with('success', 'Category berhasil diupdate!');
     }
 
-    // Hapus kategori
+    
     public function destroy($id)
     {
         $category = Category::findOrFail($id);

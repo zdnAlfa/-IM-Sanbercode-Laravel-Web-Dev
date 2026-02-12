@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category; // ✅ Tambahkan ini (import Category model)
+use App\Models\Category; 
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -17,7 +17,7 @@ class ProductController extends Controller
 
     public function create()
     {
-        $categories = Category::all(); // ✅ Ambil semua kategori
+        $categories = Category::all(); 
         return view('products.create', compact('categories'));
     }
 
@@ -59,8 +59,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::findOrFail($id);
-        $categories = Category::all(); // ✅ Tambahkan ini (ambil semua kategori)
-        return view('products.edit', compact('product', 'categories')); // ✅ Kirim ke view
+        $categories = Category::all(); 
+        return view('products.edit', compact('product', 'categories')); // 
     }
 
     public function show($id)

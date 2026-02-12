@@ -5,7 +5,7 @@
 @section('content')
 <div class="container mt-4">
     <h1>Detail Product</h1>
-    <!-- Tambahkan bagian ini di bawah judul -->
+    
     <h5 class="card-title">Category: {{ $product->category->name ?? 'N/A' }}</h5>
     <a href="{{ route('product.index') }}" class="btn btn-secondary mb-3">
         ← Kembali ke List

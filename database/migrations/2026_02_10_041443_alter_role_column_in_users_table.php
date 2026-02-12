@@ -9,14 +9,14 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('role', 10)->change(); // Perbesar dari 4 ke 10 karakter
+            $table->string('role', 10)->change(); 
         });
     }
 
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('role', 4)->change(); // Kembalikan ke ukuran asli
+            $table->string('role', 4)->change(); 
         });
     }
 };

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Transaction;
-use App\Models\Product; // ✅ Tambahkan use statement
+use App\Models\Product; 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,7 +17,7 @@ class TransactionController extends Controller
 
     public function create()
     {
-        $products = Product::all(); // ✅ Gunakan Product tanpa namespace
+        $products = Product::all(); 
         return view('transactions.create', compact('products'));
     }
 
@@ -30,9 +30,9 @@ class TransactionController extends Controller
             'notes' => 'nullable|string',
         ]);
 
-        $product = Product::findOrFail($request->product_id); // ✅ Dapatkan produk
+        $product = Product::findOrFail($request->product_id); 
 
-        // ✅ Validasi stock untuk transaksi keluar
+        
         if ($request->type === 'out' && $product->stock < $request->amount) {
             return back()->withErrors([
                 'amount' => 'Stock tidak cukup! Tidak bisa melakukan transaksi keluar.'
@@ -47,7 +47,7 @@ class TransactionController extends Controller
             'notes' => $request->notes,
         ]);
 
-        // ✅ Update stock berdasarkan jenis transaksi
+        
         if ($request->type === 'in') {
             $product->stock += $request->amount;
         } else {

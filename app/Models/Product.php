@@ -15,13 +15,13 @@ class Product extends Model
         'category_id'
     ];
 
-    // Relasi ke Category
+    
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
-    // Relasi ke Transaction
+    
     public function transactions()
     {
         return $this->hasMany(Transaction::class);

@@ -16,25 +16,25 @@
           </a>
           <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
             <div class="message-body">
-              <!-- My Profile Link (ke halaman show) -->
+              
               <a href="{{ route('profile.show') }}" class="d-flex align-items-center gap-2 dropdown-item">
                 <i class="ti ti-user fs-6"></i>
                 <p class="mb-0 fs-3">My Profile</p>
               </a>
               
-              <!-- My Account Link (ke halaman edit) -->
+             
               <a href="{{ route('profile.edit') }}" class="d-flex align-items-center gap-2 dropdown-item">
                 <i class="ti ti-settings fs-6"></i>
                 <p class="mb-0 fs-3">Edit Account</p>
               </a>
               
-              <!-- Role Info -->
+              
               <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
                 <i class="ti ti-shield fs-6"></i>
                 <p class="mb-0 fs-3">Role: {{ ucfirst(Auth::user()->role) }}</p>
               </a>
               
-              <!-- Logout Form -->
+              
               <form method="POST" action="{{ route('logout') }}" class="d-flex align-items-center gap-2 dropdown-item">
                 @csrf
                 <button type="submit" class="btn btn-outline-primary mx-3 mt-2 d-block">

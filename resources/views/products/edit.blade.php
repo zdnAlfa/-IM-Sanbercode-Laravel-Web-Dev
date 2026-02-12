@@ -57,7 +57,7 @@
             @enderror
         </div>
 
-        <!-- Tambahkan Dropdown Kategori -->
+       
         <div class="mb-3">
             <label for="category_id" class="form-label">Kategori <span class="text-danger">*</span></label>
             <select class="form-control @error('category_id') is-invalid @enderror" 
