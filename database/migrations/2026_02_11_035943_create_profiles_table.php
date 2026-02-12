@@ -8,18 +8,17 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('email')->unique();
-            $table->text('password');
-            $table->enum('role', ['user', 'staff', 'admin'])->default('user');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('age')->nullable();
+            $table->text('bio')->nullable();
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('profiles');
     }
 };

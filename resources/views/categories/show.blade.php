@@ -1,22 +1,37 @@
 @extends('layouts.master')
+
 @section('title', 'Detail Category')
 
 @section('content')
-    <h1>Detail Category</h1>
-    <a href="{{ route('category.index') }}">← Kembali ke List</a>
-    <hr>
+<div class="container mt-4">
+    <h1>Detail Category: {{ $category->name }}</h1>
+    <a href="{{ route('category.index') }}" class="btn btn-secondary mb-3">← Kembali</a>
 
-    <p><strong>Nama Category:</strong> {{ $category->name }}</p>
-    <p><strong>Description:</strong> {{ $category->description ?? '-' }}</p>
-    <p><strong>Created At:</strong> {{ $category->created_at->format('d M Y H:i:s') }}</p>
-    <p><strong>Updated At:</strong> {{ $category->updated_at->format('d M Y H:i:s') }}</p>
-
-    <hr>
-    <a href="{{ route('category.edit', $category->id) }}">Edit</a> |
-    
-    <form action="{{ route('category.destroy', $category->id) }}" method="POST" style="display: inline;">
-        @csrf
-        @method('DELETE')
-        <button type="submit" onclick="return confirm('Yakin ingin hapus?')">Delete</button>
-    </form>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ $category->name }}</h5>
+            <p class="card-text">{{ $category->description }}</p>
+            
+            <h4 class="mt-4">Products in this Category:</h4>
+            <div class="row">
+                @foreach($products as $product)
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="{{ $product->image ? asset($product->image) : 'https://via.placeholder.com/300x200' }}" 
+                             class="card-img-top" 
+                             alt="{{ $product->name }}" 
+                             style="height: 200px; object-fit: cover;">
+                        
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $product->name }}</h5>
+                            <p class="card-text">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
+                            <p class="card-text">Stock: {{ $product->stock }}</p>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
